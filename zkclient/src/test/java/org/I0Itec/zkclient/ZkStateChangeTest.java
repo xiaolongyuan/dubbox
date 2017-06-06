@@ -1,25 +1,20 @@
 package org.I0Itec.zkclient;
 
-import static org.junit.Assert.assertEquals;
+import org.apache.zookeeper.*;
+import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.ZooKeeper.States;
+import org.apache.zookeeper.data.ACL;
+import org.apache.zookeeper.data.Stat;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.Watcher.Event.KeeperState;
-import org.apache.zookeeper.ZooKeeper.States;
-import org.apache.zookeeper.data.ACL;
-import org.apache.zookeeper.data.Stat;
-import org.apache.zookeeper.Op;
-import org.apache.zookeeper.OpResult;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class ZkStateChangeTest {
 
@@ -141,6 +136,11 @@ public class ZkStateChangeTest {
 
         @Override
         public void delete(String path) throws InterruptedException, KeeperException {
+            throw new RuntimeException("not implemented");
+        }
+
+        @Override
+        public void delete(String path, int version) throws InterruptedException, KeeperException {
             throw new RuntimeException("not implemented");
         }
 
