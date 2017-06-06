@@ -15,6 +15,14 @@
  */
 package org.I0Itec.zkclient;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.util.Arrays;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.I0Itec.zkclient.exception.ZkException;
 import org.I0Itec.zkclient.exception.ZkInterruptedException;
 import org.apache.zookeeper.server.NIOServerCnxnFactory;
@@ -22,16 +30,8 @@ import org.apache.zookeeper.server.ZooKeeperServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.io.File;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.util.Arrays;
-
 public class ZkServer {
 
-    //private final static Logger LOG = Logger.getLogger(ZkServer.class);
     private final static Logger LOG = LoggerFactory.getLogger(ZkServer.class);
 
     public static final int DEFAULT_PORT = 2181;
